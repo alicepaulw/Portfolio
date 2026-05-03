@@ -19,10 +19,6 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 0.85rem; color: var(--ink-muted); text-decoration: none; letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; cursor: pointer; }
   .nav-links a:hover { color: var(--accent); }
-  .nav-links a.active-nav { color: var(--ink); font-weight: 500; }
-
-  .page { display: none; }
-  .page.active { display: block; }
 
   .hero { padding: 5rem 3rem 4rem; max-width: 820px; margin: 0 auto; text-align: center; }
   .hero-eyebrow { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); border: 0.5px solid var(--accent-mid); background: var(--accent-light); padding: 0.3rem 0.9rem; border-radius: 100px; margin-bottom: 1.5rem; }
@@ -73,271 +69,98 @@
   .about-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .about-link { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1rem; border-radius: 100px; border: 0.5px solid rgba(255,255,255,0.25); color: white; text-decoration: none; transition: background 0.18s; background: transparent; font-family: 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 0.3rem; }
   .about-link:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.5); }
-
-  /* CALENDAR */
-  .cal-page { padding: 3rem; max-width: 1080px; margin: 0 auto; }
-  .cal-page h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 0.5rem; }
-  .cal-page .cal-sub { font-size: 0.95rem; color: var(--ink-muted); margin-bottom: 2.5rem; line-height: 1.6; }
-  .week-block { margin-bottom: 2.5rem; }
-  .week-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-  .week-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
-  .week-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.85rem; }
-  .cal-card { background: white; border: 0.5px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; }
-  .cal-day { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
-  .cal-topic-tag { display: inline-block; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 100px; margin-bottom: 0.15rem; }
-  .cal-topic-tag.onboarding { background: var(--accent-light); color: var(--accent); }
-  .cal-topic-tag.ebr { background: #eeedfe; color: #534ab7; }
-  .cal-topic-tag.retention { background: #faeeda; color: #854f0b; }
-  .cal-topic-tag.ai { background: #fbeaf0; color: #993556; }
-  .cal-title { font-family: 'DM Serif Display', serif; font-size: 0.95rem; line-height: 1.35; font-weight: 400; color: var(--ink); }
-  .cal-format { font-size: 0.72rem; color: var(--ink-faint); }
-  .legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; }
-  .legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--ink-muted); }
-  .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
-  .legend-dot.onboarding { background: var(--accent-mid); }
-  .legend-dot.ebr { background: #534ab7; }
-  .legend-dot.retention { background: #854f0b; }
-  .legend-dot.ai { background: #993556; }
 </style>
 </head>
 <body>
 
 <nav>
-  <a class="nav-logo" href="#" onclick="showPage('writing'); return false;">Alice Paul</a>
+  <a class="nav-logo" href="#">Alice Paul</a>
   <ul class="nav-links">
-    <li><a href="#" onclick="showPage('writing'); return false;" id="nav-writing" class="active-nav">Writing</a></li>
-    <li><a href="#" onclick="showPage('calendar'); return false;" id="nav-calendar">Content calendar</a></li>
+    <li><a href="#">Writing</a></li>
     <li><a href="https://www.linkedin.com/in/alicepaulw" target="_blank">LinkedIn ↗</a></li>
   </ul>
 </nav>
 
-<!-- WRITING PAGE -->
-<div class="page active" id="page-writing">
-  <section class="hero">
-    <span class="hero-eyebrow">Published on Guidde &amp; beyond</span>
-    <h1>Writing at the intersection of <em>people, process,</em> and growth.</h1>
-    <p class="hero-sub">Practical takes on customer success, AI-powered support, and the strategies that drive retention — from someone who's lived it across SaaS, EdTech, and MarTech.</p>
-    <button class="hero-cta" onclick="document.querySelector('.filter-bar').scrollIntoView({behavior:'smooth'})">Read the work ↓</button>
-  </section>
+<section class="hero">
+  <span class="hero-eyebrow">Published on Guidde &amp; beyond</span>
+  <h1>Writing at the intersection of <em>people, process,</em> and growth.</h1>
+  <p class="hero-sub">Practical takes on customer success, AI-powered support, and the strategies that drive retention — from someone who's lived it across e-Commerce and B2B SaaS.</p>
+  <button class="hero-cta" onclick="document.querySelector('.filter-bar').scrollIntoView({behavior:'smooth'})">Read the work ↓</button>
+</section>
 
-  <div class="filter-bar">
-    <button class="filter-btn active" data-filter="all">All pieces</button>
-    <button class="filter-btn" data-filter="adoption">Digital adoption</button>
-    <button class="filter-btn" data-filter="marketing">Marketing</button>
-    <button class="filter-btn" data-filter="tips">Tips &amp; tricks</button>
-  </div>
-
-  <section class="grid-section">
-    <div class="section-label">Featured</div>
-    <div class="articles-grid">
-      <a class="article-card featured-card" href="https://www.guidde.com/blog/how-product-knowledge-drives-customer-satisfaction" target="_blank" data-category="marketing">
-        <div class="featured-card-body">
-          <span class="featured-label">Featured · Guidde · Marketing</span>
-          <div class="featured-title">How Product Knowledge Drives Customer Satisfaction</div>
-          <div class="featured-excerpt">Every 1% rise in customer satisfaction propels a 5% increase in retention. This piece explores what deep product knowledge really looks like in practice — including a first-hand case study of navigating a cloud migration crisis across 200+ accounts.</div>
-          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:0.5px solid var(--border);margin-top:auto;">
-            <span class="card-read">4 min read · May 14, 2024</span>
-            <div class="card-arrow">→</div>
-          </div>
-        </div>
-        <div class="featured-visual">✦</div>
-      </a>
-    </div>
-  </section>
-
-  <section class="grid-section" style="padding-top:0;">
-    <div class="section-label">All writing</div>
-    <div class="articles-grid" id="cards-grid">
-
-      <a class="article-card" href="https://www.guidde.com/blog/how-can-ai-help-analyze-customer-feedback-data" target="_blank" data-category="adoption">
-        <div class="card-top"><span class="card-tag adoption">Digital adoption</span><span class="card-date">May 15, 2024</span></div>
-        <div class="card-title">How Can AI Help Analyze Customer Feedback Data?</div>
-        <div class="card-excerpt">From sentiment analysis to trend forecasting — a practical guide to using AI to move beyond basic metrics and actually understand what your customers are telling you.</div>
-        <div class="card-footer"><span class="card-read">4 min read · Guidde</span><div class="card-arrow">→</div></div>
-      </a>
-
-      <a class="article-card" href="https://www.guidde.com/blog/how-to-use-ai-to-tackle-customer-objections" target="_blank" data-category="adoption">
-        <div class="card-top"><span class="card-tag adoption">Digital adoption</span><span class="card-date">May 13, 2024</span></div>
-        <div class="card-title">How to Use AI to Tackle Customer Objections</div>
-        <div class="card-excerpt">Forget scripts. AI can personalize objection responses in real time by drawing on CRM data, past interactions, and behavioral signals — turning hesitation into opportunity.</div>
-        <div class="card-footer"><span class="card-read">2 min read · Guidde</span><div class="card-arrow">→</div></div>
-      </a>
-
-      <a class="article-card" href="https://www.guidde.com/blog/what-defines-successful-product-onboarding-in-saas-companies" target="_blank" data-category="adoption">
-        <div class="card-top"><span class="card-tag adoption">Digital adoption</span><span class="card-date">May 13, 2024</span></div>
-        <div class="card-title">What Defines Successful Product Onboarding in SaaS Companies?</div>
-        <div class="card-excerpt">Onboarding success isn't just about adoption — it's about confidence. A look at the key elements, common pitfalls, and metrics that actually tell you if you've set customers up to succeed.</div>
-        <div class="card-footer"><span class="card-read">2 min read · Guidde</span><div class="card-arrow">→</div></div>
-      </a>
-
-      <a class="article-card" href="https://www.guidde.com/blog/what-is-customer-retention-rate-and-how-to-improve-it" target="_blank" data-category="tips">
-        <div class="card-top"><span class="card-tag tips">Tips &amp; tricks</span><span class="card-date">May 13, 2024</span></div>
-        <div class="card-title">What is Customer Retention Rate and How to Improve It?</div>
-        <div class="card-excerpt">CRR is more than a metric — it's a signal about trust, value, and experience. Here's how to calculate it, interpret it, and build the strategies that move it in the right direction.</div>
-        <div class="card-footer"><span class="card-read">2 min read · Guidde</span><div class="card-arrow">→</div></div>
-      </a>
-
-    </div>
-  </section>
-
-  <div class="about-strip">
-    <div class="about-avatar">AP</div>
-    <div class="about-text">
-      <div class="about-name">Alice Paul</div>
-      <div class="about-bio">Customer Success &amp; Operations professional across SaaS, EdTech, and MarTech. I write about the tools, strategies, and human dynamics that make CS teams work — and customers stay.</div>
-    </div>
-    <div class="about-links">
-      <a class="about-link" href="https://www.linkedin.com/in/alicepaulw" target="_blank">LinkedIn ↗</a>
-      <a class="about-link" href="mailto:alpw.ops@gmail.com">Get in touch</a>
-    </div>
-  </div>
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All pieces</button>
+  <button class="filter-btn" data-filter="adoption">Digital adoption</button>
+  <button class="filter-btn" data-filter="marketing">Marketing</button>
+  <button class="filter-btn" data-filter="tips">Tips &amp; tricks</button>
 </div>
 
-<!-- CALENDAR PAGE -->
-<div class="page" id="page-calendar">
-  <div class="cal-page">
-    <h2>Content calendar — Month 1</h2>
-    <p class="cal-sub">3–4 posts per week across two core topic pillars: onboarding and EBR/QBR templates. Formats rotate to keep content fresh — long-form articles, listicles, templates, and short punchy takes.</p>
-
-    <div class="legend">
-      <div class="legend-item"><div class="legend-dot onboarding"></div>Onboarding</div>
-      <div class="legend-item"><div class="legend-dot ebr"></div>EBR / QBR</div>
-      <div class="legend-item"><div class="legend-dot retention"></div>Retention &amp; CS ops</div>
-      <div class="legend-item"><div class="legend-dot ai"></div>AI in CS</div>
-    </div>
-
-    <div class="week-block">
-      <div class="week-label">Week 1 — Foundations</div>
-      <div class="week-grid">
-        <div class="cal-card">
-          <div class="cal-day">Monday</div>
-          <span class="cal-topic-tag onboarding">Onboarding</span>
-          <div class="cal-title">The 5 onboarding mistakes SaaS teams keep making (and how to fix them)</div>
-          <div class="cal-format">Long-form article · ~800 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Wednesday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">What's the difference between an EBR and a QBR — and when does it matter?</div>
-          <div class="cal-format">Explainer · ~500 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Friday</div>
-          <span class="cal-topic-tag onboarding">Onboarding</span>
-          <div class="cal-title">The onboarding checklist your CSM team actually needs</div>
-          <div class="cal-format">Template / listicle · ~600 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Saturday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">Why most QBRs fail before the meeting even starts</div>
-          <div class="cal-format">Short take · ~300 words</div>
+<section class="grid-section">
+  <div class="section-label">Featured</div>
+  <div class="articles-grid">
+    <a class="article-card featured-card" href="https://www.guidde.com/blog/how-product-knowledge-drives-customer-satisfaction" target="_blank" data-category="marketing">
+      <div class="featured-card-body">
+        <span class="featured-label">Featured · Guidde · Marketing</span>
+        <div class="featured-title">How Product Knowledge Drives Customer Satisfaction</div>
+        <div class="featured-excerpt">Every 1% rise in customer satisfaction propels a 5% increase in retention. This piece explores what deep product knowledge really looks like in practice — including a first-hand case study of navigating a cloud migration crisis across 200+ accounts.</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding-top:1rem;border-top:0.5px solid var(--border);margin-top:auto;">
+          <span class="card-read">4 min read · May 14, 2024</span>
+          <div class="card-arrow">→</div>
         </div>
       </div>
-    </div>
+      <div class="featured-visual">✦</div>
+    </a>
+  </div>
+</section>
 
-    <div class="week-block">
-      <div class="week-label">Week 2 — Templates &amp; Tools</div>
-      <div class="week-grid">
-        <div class="cal-card">
-          <div class="cal-day">Monday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">My 1-page EBR template that actually gets C-suite buy-in</div>
-          <div class="cal-format">Template walkthrough · ~700 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Tuesday</div>
-          <span class="cal-topic-tag onboarding">Onboarding</span>
-          <div class="cal-title">How to onboard a new customer in 30 days without burning out your team</div>
-          <div class="cal-format">Long-form guide · ~900 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Thursday</div>
-          <span class="cal-topic-tag retention">Retention &amp; CS ops</span>
-          <div class="cal-title">The metrics your onboarding should be tracking (but probably isn't)</div>
-          <div class="cal-format">Data-driven article · ~600 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Saturday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">3 slides every QBR deck needs — and 3 you can cut</div>
-          <div class="cal-format">Listicle · ~400 words</div>
-        </div>
-      </div>
-    </div>
+<section class="grid-section" style="padding-top:0;">
+  <div class="section-label">All writing</div>
+  <div class="articles-grid" id="cards-grid">
 
-    <div class="week-block">
-      <div class="week-label">Week 3 — Going Deeper</div>
-      <div class="week-grid">
-        <div class="cal-card">
-          <div class="cal-day">Monday</div>
-          <span class="cal-topic-tag onboarding">Onboarding</span>
-          <div class="cal-title">Self-serve vs. high-touch onboarding: how to know which one your customer needs</div>
-          <div class="cal-format">Comparison article · ~700 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Wednesday</div>
-          <span class="cal-topic-tag ai">AI in CS</span>
-          <div class="cal-title">How I used AI to cut onboarding documentation time in half</div>
-          <div class="cal-format">Personal take · ~500 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Thursday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">How to run an EBR when the customer relationship is rocky</div>
-          <div class="cal-format">Tactical guide · ~800 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Saturday</div>
-          <span class="cal-topic-tag retention">Retention &amp; CS ops</span>
-          <div class="cal-title">The link between onboarding quality and 12-month NRR</div>
-          <div class="cal-format">Data-driven short take · ~400 words</div>
-        </div>
-      </div>
-    </div>
+    <a class="article-card" href="https://www.guidde.com/blog/how-can-ai-help-analyze-customer-feedback-data" target="_blank" data-category="adoption">
+      <div class="card-top"><span class="card-tag adoption">Digital adoption</span><span class="card-date">May 15, 2024</span></div>
+      <div class="card-title">How Can AI Help Analyze Customer Feedback Data?</div>
+      <div class="card-excerpt">From sentiment analysis to trend forecasting — a practical guide to using AI to move beyond basic metrics and actually understand what your customers are telling you.</div>
+      <div class="card-footer"><span class="card-read">4 min read · Guidde</span><div class="card-arrow">→</div></div>
+    </a>
 
-    <div class="week-block">
-      <div class="week-label">Week 4 — Putting It Together</div>
-      <div class="week-grid">
-        <div class="cal-card">
-          <div class="cal-day">Monday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">A 1-page QBR template for teams with no time to prep</div>
-          <div class="cal-format">Template · ~600 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Wednesday</div>
-          <span class="cal-topic-tag onboarding">Onboarding</span>
-          <div class="cal-title">When onboarding goes wrong: a real story and what I'd do differently</div>
-          <div class="cal-format">Personal story · ~700 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Friday</div>
-          <span class="cal-topic-tag ai">AI in CS</span>
-          <div class="cal-title">AI tools that are actually changing how CS teams onboard in 2024</div>
-          <div class="cal-format">Roundup · ~600 words</div>
-        </div>
-        <div class="cal-card">
-          <div class="cal-day">Saturday</div>
-          <span class="cal-topic-tag ebr">EBR / QBR</span>
-          <div class="cal-title">Month 1 recap: what I learned writing about EBRs and onboarding every week</div>
-          <div class="cal-format">Reflection / newsletter-style · ~400 words</div>
-        </div>
-      </div>
-    </div>
+    <a class="article-card" href="https://www.guidde.com/blog/how-to-use-ai-to-tackle-customer-objections" target="_blank" data-category="adoption">
+      <div class="card-top"><span class="card-tag adoption">Digital adoption</span><span class="card-date">May 13, 2024</span></div>
+      <div class="card-title">How to Use AI to Tackle Customer Objections</div>
+      <div class="card-excerpt">Forget scripts. AI can personalize objection responses in real time by drawing on CRM data, past interactions, and behavioral signals — turning hesitation into opportunity.</div>
+      <div class="card-footer"><span class="card-read">2 min read · Guidde</span><div class="card-arrow">→</div></div>
+    </a>
 
+    <a class="article-card" href="https://www.guidde.com/blog/what-defines-successful-product-onboarding-in-saas-companies" target="_blank" data-category="adoption">
+      <div class="card-top"><span class="card-tag adoption">Digital adoption</span><span class="card-date">May 13, 2024</span></div>
+      <div class="card-title">What Defines Successful Product Onboarding in SaaS Companies?</div>
+      <div class="card-excerpt">Onboarding success isn't just about adoption — it's about confidence. A look at the key elements, common pitfalls, and metrics that actually tell you if you've set customers up to succeed.</div>
+      <div class="card-footer"><span class="card-read">2 min read · Guidde</span><div class="card-arrow">→</div></div>
+    </a>
+
+    <a class="article-card" href="https://www.guidde.com/blog/what-is-customer-retention-rate-and-how-to-improve-it" target="_blank" data-category="tips">
+      <div class="card-top"><span class="card-tag tips">Tips &amp; tricks</span><span class="card-date">May 13, 2024</span></div>
+      <div class="card-title">What is Customer Retention Rate and How to Improve It?</div>
+      <div class="card-excerpt">CRR is more than a metric — it's a signal about trust, value, and experience. Here's how to calculate it, interpret it, and build the strategies that move it in the right direction.</div>
+      <div class="card-footer"><span class="card-read">2 min read · Guidde</span><div class="card-arrow">→</div></div>
+    </a>
+
+  </div>
+</section>
+
+<div class="about-strip">
+  <div class="about-avatar">AP</div>
+  <div class="about-text">
+    <div class="about-name">Alice Paul</div>
+    <div class="about-bio">Customer Success &amp; Operations professional with experience across e-Commerce and B2B SaaS. I write about the tools, strategies, and human dynamics that make CS teams work — and customers stay.</div>
+  </div>
+  <div class="about-links">
+    <a class="about-link" href="https://www.linkedin.com/in/alicepaulw" target="_blank">LinkedIn ↗</a>
+    <a class="about-link" href="mailto:alpw.ops@gmail.com">Get in touch</a>
   </div>
 </div>
 
 <script>
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active-nav'));
-    document.getElementById('page-' + name).classList.add('active');
-    document.getElementById('nav-' + name).classList.add('active-nav');
-    window.scrollTo(0, 0);
-  }
-
   const btns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('#cards-grid .article-card');
   btns.forEach(btn => {
